@@ -6,7 +6,7 @@ Built for the [Antigravity](https://www.antigravity.so/) automation community sk
 
 ## What it does
 
-If you've ever shipped something that worked perfectly in dev and then fell over the moment real users touched it — missing error handling, webhook retries creating duplicate records, an auth flow that returns null for every user — this skill is for that.
+If you've ever shipped something that worked perfectly in dev and then fell over the moment real users touched it (missing error handling, webhook retries creating duplicate records, an auth flow that returns null for every user), this skill is for that.
 
 It reads your actual code, checks it against a checklist of real-world failure modes, and gives you a prioritised report of what's going to bite you. Not style nits. Not theoretical concerns. Actual things that will break.
 
@@ -14,9 +14,9 @@ It reads your actual code, checks it against a checklist of real-world failure m
 
 Three domains, because those are what the community mostly builds:
 
-- **Next.js / frontend apps** — Supabase auth in server components, insert vs upsert on webhook retries, session token leaks, missing RLS, cron endpoints left wide open
-- **MCP servers and API integrations** — stdout pollution crashing JSON-RPC, missing signature verification, no timeout on outbound calls, orphaned processes
-- **Automation pipelines** — no overlap protection on scheduled jobs, connection leaks, idempotency gaps, files loaded entirely into memory
+- **Next.js / frontend apps**: Supabase auth in server components, insert vs upsert on webhook retries, session token leaks, missing RLS, cron endpoints left wide open
+- **MCP servers and API integrations**: stdout pollution crashing JSON-RPC, missing signature verification, no timeout on outbound calls, orphaned processes
+- **Automation pipelines**: no overlap protection on scheduled jobs, connection leaks, idempotency gaps, files loaded entirely into memory
 
 Each domain has a reference checklist built from real incidents (the Moltbook breach, the Enrichlead bypass, common n8n production failures) so the audit is grounded in things that actually happened, not hypothetical scenarios.
 
@@ -24,13 +24,13 @@ Each domain has a reference checklist built from real incidents (the Moltbook br
 
 Say something like "audit this before I deploy" or "what could go wrong" and the skill:
 
-1. Reads your code (not just the conversation — it actually opens the files)
+1. Reads your code (not just the conversation, it actually opens the files)
 2. Classifies your build type and picks the right checklist
 3. Starts by telling you what's solid (so you know what NOT to touch)
 4. Lists issues in severity tiers with specific file references and fix code
 5. Gives you a deployment checklist and a concrete next step
 
-The output looks like a senior dev reviewing your PR — not a linter, not a generic security scanner.
+The output looks like a senior dev reviewing your PR, not a linter or a generic security scanner.
 
 ## What makes it different
 
@@ -54,18 +54,18 @@ It also does things baseline Claude never does:
 ## Repo structure
 
 ```
-edge-case-auditor/          # The skill
-  SKILL.md                  # Main skill instructions
-  references/               # Domain-specific checklists
-  evals/                    # Test case definitions
+edge-case-auditor/            # The skill
+  SKILL.md                    # Main skill instructions
+  references/                 # Domain-specific checklists
+  evals/                      # Test case definitions
 
 edge-case-auditor-workspace/  # Eval data (4 iterations)
   iteration-1/ .. iteration-4/
-  research-ai-pitfalls.md   # Web research on AI code failure modes
+  research-ai-pitfalls.md     # Web research on AI code failure modes
 
-files/                      # Original source files
-covering-letter.md          # Competition submission letter
-HANDOFF.md                  # Detailed development history
+files/                        # Original source files
+covering-letter.md            # Competition submission letter
+HANDOFF.md                    # Detailed development history
 ```
 
 ## Who it's for
