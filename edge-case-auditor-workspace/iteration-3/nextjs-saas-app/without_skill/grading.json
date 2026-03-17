@@ -1,0 +1,21 @@
+{
+  "eval_id": 1,
+  "eval_name": "nextjs-saas-app",
+  "configuration": "without_skill",
+  "pass_rate": 0.8,
+  "passed": 8,
+  "failed": 2,
+  "total": 10,
+  "assertions": [
+    {"text": "Identifies cron endpoint has no authentication", "passed": true, "evidence": "Critical issue #1 — CRON_SECRET fix with code"},
+    {"text": "Identifies dashboard crashes when subscription is null", "passed": true, "evidence": "Critical issue #4 — null reference crash identified"},
+    {"text": "Identifies insert vs upsert issue on webhook (duplicates on retry)", "passed": false, "evidence": "Issue #2 mentions 'duplicate key' as a possible DB error but does not identify the specific insert-vs-upsert pattern or webhook retry idempotency concern"},
+    {"text": "Identifies Supabase auth won't work in server components without cookie-based client", "passed": true, "evidence": "Critical issue #3 — getUser() returns null without SSR cookie access"},
+    {"text": "Identifies auth route leaks session tokens in response body", "passed": true, "evidence": "Security issue #5 — tokens in JSON response body"},
+    {"text": "Identifies cron job will crash on null data from Supabase query", "passed": false, "evidence": "Issue #11 covers email sending crash but does not identify that Supabase query returning null 'expiring' would crash the for-of loop"},
+    {"text": "References specific file paths and line numbers", "passed": true, "evidence": "File paths referenced throughout, some line numbers"},
+    {"text": "Provides actionable fix code snippets", "passed": true, "evidence": "Code snippets for auth, cron, vercel.json"},
+    {"text": "Uses severity tiers to prioritise issues", "passed": true, "evidence": "4 categories: Critical, Security, Reliability, Architecture"},
+    {"text": "Includes a clear verdict and suggested next action", "passed": true, "evidence": "'not ready to ship as-is' with prioritised fix order"}
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "expectations": [
+    {"text": "Identifies no idempotency (re-run creates duplicate records)", "passed": true, "evidence": "Issues #3 and #4: No database transaction safety and file archival ordering"},
+    {"text": "Identifies missing error handling (no try/except anywhere)", "passed": true, "evidence": "Issue #2: No error handling anywhere"},
+    {"text": "Identifies database connection leak on exceptions", "passed": false, "evidence": "Connection leak not explicitly identified as its own issue — only mentioned tangentially in transaction safety discussion"},
+    {"text": "Identifies archive/reports directories might not exist", "passed": true, "evidence": "Issues #8 and #9: Reports and archive directories may not exist"},
+    {"text": "Identifies concurrent run risk (no overlap protection on schedule)", "passed": false, "evidence": "Issue #15 mentions schedule library is single-threaded and runs stack up but does NOT identify the specific concurrent-run/duplicate-data risk or recommend a lock"},
+    {"text": "Identifies credentials in .env with no .gitignore", "passed": true, "evidence": "Issue #1: Credentials committed in .env"},
+    {"text": "References specific file paths and line numbers", "passed": true, "evidence": "File and line references throughout"},
+    {"text": "Provides actionable fix code snippets", "passed": true, "evidence": "Fix recommendations present with some code"},
+    {"text": "Uses severity tiers to prioritise issues", "passed": true, "evidence": "Critical/Major/Moderate/Minor tiers"},
+    {"text": "Includes verdict and suggested next action", "passed": false, "evidence": "Has priority recommendations table but no single verdict sentence"}
+  ],
+  "summary": {"passed": 7, "failed": 3, "total": 10, "pass_rate": 0.7}
+}

@@ -1,0 +1,16 @@
+{
+  "eval_id": 0, "eval_name": "stripe-airtable-sync", "configuration": "with_skill",
+  "pass_rate": 1.0, "passed": 10, "failed": 0, "total": 10,
+  "assertions": [
+    {"text": "Identifies missing webhook signature verification", "passed": true, "evidence": "Critical #1"},
+    {"text": "Identifies duplicate record risk", "passed": true, "evidence": "High #5 — idempotency with event.id tracking"},
+    {"text": "Identifies missing error handling", "passed": true, "evidence": "Critical #2"},
+    {"text": "Identifies .env with live keys", "passed": true, "evidence": "Critical #3"},
+    {"text": "Identifies /sync/payments issues", "passed": true, "evidence": "Critical #4"},
+    {"text": "Identifies null property access", "passed": true, "evidence": "High #6 and #7"},
+    {"text": "References file paths and lines", "passed": true, "evidence": "All 12 issues reference server.js with line numbers"},
+    {"text": "Provides fix code snippets", "passed": true, "evidence": "Code in 8 of 12 issues"},
+    {"text": "Uses severity tiers", "passed": true, "evidence": "3 tiers: Critical (4), High (6), Worth noting (2)"},
+    {"text": "Includes verdict + next action", "passed": true, "evidence": "All format elements present, specific follow-up offer"}
+  ]
+}

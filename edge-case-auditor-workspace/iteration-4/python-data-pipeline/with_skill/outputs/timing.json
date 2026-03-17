@@ -1,0 +1,10 @@
+{
+  "start_time": "2026-03-16T00:00:00Z",
+  "end_time": "2026-03-16T00:00:30Z",
+  "duration_seconds": 30,
+  "model": "claude-opus-4-6",
+  "skill": "edge-case-auditor",
+  "iteration": 4,
+  "scenario": "python-data-pipeline",
+  "variant": "with_skill"
+}

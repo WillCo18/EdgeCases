@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "skill_name": "edge-case-auditor",
+    "skill_path": "/Users/willcoates/Documents/Antigravity/EdgeCase/edge-case-auditor",
+    "executor_model": "claude-opus-4-6",
+    "timestamp": "2026-03-16T09:00:00Z",
+    "evals_run": ["stripe-airtable-sync", "nextjs-saas-app", "python-data-pipeline"],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 0, "eval_name": "stripe-airtable-sync", "configuration": "with_skill", "run_number": 1,
+      "result": {"pass_rate": 1.0, "passed": 10, "failed": 0, "total": 10, "time_seconds": 135.3, "tokens": 22297, "tool_calls": 10, "errors": 0},
+      "expectations": [
+        {"text": "Identifies missing webhook signature verification", "passed": true, "evidence": "Issue #1"},
+        {"text": "Identifies duplicate record risk", "passed": true, "evidence": "Issue #4"},
+        {"text": "Identifies missing error handling", "passed": true, "evidence": "Issue #2"},
+        {"text": "Identifies .env with live keys", "passed": true, "evidence": "Issue #11"},
+        {"text": "Identifies /sync/payments issues", "passed": true, "evidence": "Issue #3"},
+        {"text": "Identifies null property access", "passed": true, "evidence": "Issue #5"},
+        {"text": "References file paths and lines", "passed": true, "evidence": "All 17 issues"},
+        {"text": "Provides fix code snippets", "passed": true, "evidence": "Code in 12+ issues"},
+        {"text": "Uses severity tiers", "passed": true, "evidence": "3 tiers"},
+        {"text": "Includes verdict + next action", "passed": true, "evidence": "Present + Risk Summary + Deployment Checklist"}
+      ]
+    },
+    {
+      "eval_id": 0, "eval_name": "stripe-airtable-sync", "configuration": "without_skill", "run_number": 1,
+      "result": {"pass_rate": 0.9, "passed": 9, "failed": 1, "total": 10, "time_seconds": 91.7, "tokens": 13013, "tool_calls": 6, "errors": 0},
+      "expectations": [
+        {"text": "Identifies missing webhook signature verification", "passed": true, "evidence": "Issue #1"},
+        {"text": "Identifies duplicate record risk", "passed": true, "evidence": "Issue #5"},
+        {"text": "Identifies missing error handling", "passed": true, "evidence": "Issue #4"},
+        {"text": "Identifies .env with live keys", "passed": true, "evidence": "Issue #3"},
+        {"text": "Identifies /sync/payments issues", "passed": true, "evidence": "Issue #2"},
+        {"text": "Identifies null property access", "passed": true, "evidence": "Issue #10"},
+        {"text": "References file paths and lines", "passed": true, "evidence": "Present"},
+        {"text": "Provides fix code snippets", "passed": true, "evidence": "Present"},
+        {"text": "Uses severity tiers", "passed": true, "evidence": "4 tiers"},
+        {"text": "Includes verdict + next action", "passed": false, "evidence": "Priority table but no verdict"}
+      ]
+    },
+    {
+      "eval_id": 1, "eval_name": "nextjs-saas-app", "configuration": "with_skill", "run_number": 1,
+      "result": {"pass_rate": 1.0, "passed": 10, "failed": 0, "total": 10, "time_seconds": 139.8, "tokens": 24605, "tool_calls": 12, "errors": 0},
+      "expectations": [
+        {"text": "Identifies cron endpoint no auth", "passed": true, "evidence": "Issue #4"},
+        {"text": "Identifies dashboard null crash", "passed": true, "evidence": "Issue #2"},
+        {"text": "Identifies insert vs upsert", "passed": true, "evidence": "Issue #1"},
+        {"text": "Identifies Supabase SSR auth issue", "passed": true, "evidence": "Issue #3"},
+        {"text": "Identifies session token leak", "passed": true, "evidence": "Issue #5"},
+        {"text": "Identifies cron null/error crash", "passed": true, "evidence": "Issue #9"},
+        {"text": "References file paths and lines", "passed": true, "evidence": "All 19 issues"},
+        {"text": "Provides fix code snippets", "passed": true, "evidence": "Code in 8+ issues"},
+        {"text": "Uses severity tiers", "passed": true, "evidence": "3 tiers"},
+        {"text": "Includes verdict + next action", "passed": true, "evidence": "All 4 format elements present"}
+      ]
+    },
+    {
+      "eval_id": 1, "eval_name": "nextjs-saas-app", "configuration": "without_skill", "run_number": 1,
+      "result": {"pass_rate": 0.9, "passed": 9, "failed": 1, "total": 10, "time_seconds": 80.7, "tokens": 14899, "tool_calls": 9, "errors": 0},
+      "expectations": [
+        {"text": "Identifies cron endpoint no auth", "passed": true, "evidence": "Issue #1"},
+        {"text": "Identifies dashboard null crash", "passed": true, "evidence": "Issue #4"},
+        {"text": "Identifies insert vs upsert", "passed": false, "evidence": "Not identified"},
+        {"text": "Identifies Supabase SSR auth issue", "passed": true, "evidence": "Issue #6"},
+        {"text": "Identifies session token leak", "passed": true, "evidence": "Issue #5"},
+        {"text": "Identifies cron null/error crash", "passed": true, "evidence": "Issue #9"},
+        {"text": "References file paths and lines", "passed": true, "evidence": "Present"},
+        {"text": "Provides fix code snippets", "passed": true, "evidence": "Present"},
+        {"text": "Uses severity tiers", "passed": true, "evidence": "4 tiers"},
+        {"text": "Includes verdict + next action", "passed": true, "evidence": "'Do NOT deploy' recommendation"}
+      ]
+    },
+    {
+      "eval_id": 2, "eval_name": "python-data-pipeline", "configuration": "with_skill", "run_number": 1,
+      "result": {"pass_rate": 1.0, "passed": 10, "failed": 0, "total": 10, "time_seconds": 138.2, "tokens": 21183, "tool_calls": 8, "errors": 0},
+      "expectations": [
+        {"text": "Identifies no idempotency", "passed": true, "evidence": "Issue #3"},
+        {"text": "Identifies missing error handling", "passed": true, "evidence": "Issue #1"},
+        {"text": "Identifies DB connection leak", "passed": true, "evidence": "Issue #2"},
+        {"text": "Identifies missing directories", "passed": true, "evidence": "Issues #6, #11"},
+        {"text": "Identifies concurrent run risk", "passed": true, "evidence": "Issue #5"},
+        {"text": "Identifies credentials in .env", "passed": true, "evidence": "Issue #4"},
+        {"text": "References file paths and lines", "passed": true, "evidence": "All 22 issues"},
+        {"text": "Provides fix code snippets", "passed": true, "evidence": "Code in 13+ issues"},
+        {"text": "Uses severity tiers", "passed": true, "evidence": "3 tiers"},
+        {"text": "Includes verdict + next action", "passed": true, "evidence": "All 4 format elements present"}
+      ]
+    },
+    {
+      "eval_id": 2, "eval_name": "python-data-pipeline", "configuration": "without_skill", "run_number": 1,
+      "result": {"pass_rate": 0.7, "passed": 7, "failed": 3, "total": 10, "time_seconds": 80.8, "tokens": 13739, "tool_calls": 6, "errors": 0},
+      "expectations": [
+        {"text": "Identifies no idempotency", "passed": true, "evidence": "Issues #3, #4"},
+        {"text": "Identifies missing error handling", "passed": true, "evidence": "Issue #2"},
+        {"text": "Identifies DB connection leak", "passed": false, "evidence": "Not explicitly identified"},
+        {"text": "Identifies missing directories", "passed": true, "evidence": "Issues #8, #9"},
+        {"text": "Identifies concurrent run risk", "passed": false, "evidence": "Mentions single-threaded but not overlap risk"},
+        {"text": "Identifies credentials in .env", "passed": true, "evidence": "Issue #1"},
+        {"text": "References file paths and lines", "passed": true, "evidence": "Present"},
+        {"text": "Provides fix code snippets", "passed": true, "evidence": "Present"},
+        {"text": "Uses severity tiers", "passed": true, "evidence": "4 tiers"},
+        {"text": "Includes verdict + next action", "passed": false, "evidence": "Priority table but no verdict"}
+      ]
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0},
+      "time_seconds": {"mean": 137.8, "stddev": 2.3, "min": 135.3, "max": 139.8},
+      "tokens": {"mean": 22695, "stddev": 1716, "min": 21183, "max": 24605}
+    },
+    "without_skill": {
+      "pass_rate": {"mean": 0.83, "stddev": 0.12, "min": 0.7, "max": 0.9},
+      "time_seconds": {"mean": 84.4, "stddev": 6.1, "min": 80.7, "max": 91.7},
+      "tokens": {"mean": 13884, "stddev": 966, "min": 13013, "max": 14899}
+    },
+    "delta": {
+      "pass_rate": "+0.17",
+      "time_seconds": "+53.4",
+      "tokens": "+8811"
+    }
+  },
+  "notes": [
+    "ITERATION 2 vs ITERATION 1 COMPARISON:",
+    "With-skill pass rate: 100% (unchanged) — still perfect across all assertions",
+    "Without-skill pass rate: 83% (down from 87%) — baseline missed DB connection leak and concurrent run risk more consistently",
+    "BREADTH FIX CONFIRMED: With-skill issue count rose dramatically — Stripe: 17 (was 9), Next.js: 19 (was 10), Python: 22 (was 11)",
+    "The skill now finds MORE issues than the baseline in all 3 evals, reversing the iteration-1 deficit",
+    "New format elements (Risk Summary table, Deployment Checklist) are consistently present in skill outputs",
+    "Trade-off: skill runs take ~54s longer and use ~63% more tokens due to reading reference files and producing more comprehensive output",
+    "The insert-vs-upsert catch remains a consistent skill win — baseline missed it in both iterations",
+    "Concurrent run/overlap protection remains a consistent skill win — baseline still doesn't identify the specific risk"
+  ]
+}

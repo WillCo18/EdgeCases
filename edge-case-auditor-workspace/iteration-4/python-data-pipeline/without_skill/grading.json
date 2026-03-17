@@ -1,0 +1,16 @@
+{
+  "eval_id": 2, "eval_name": "python-data-pipeline", "configuration": "without_skill",
+  "pass_rate": 0.9, "passed": 9, "failed": 1, "total": 10,
+  "assertions": [
+    {"text": "Identifies no idempotency", "passed": true, "evidence": "#5 — duplicate detection"},
+    {"text": "Identifies missing error handling", "passed": true, "evidence": "#2"},
+    {"text": "Identifies DB connection leak", "passed": true, "evidence": "#3 — rollback/close not called"},
+    {"text": "Identifies missing directories", "passed": true, "evidence": "#8 and #9"},
+    {"text": "Identifies concurrent run risk", "passed": true, "evidence": "#10"},
+    {"text": "Identifies credentials in .env", "passed": true, "evidence": "#1"},
+    {"text": "References file paths and lines", "passed": true, "evidence": "File references present"},
+    {"text": "Provides fix code snippets", "passed": true, "evidence": "Some code examples"},
+    {"text": "Uses severity tiers", "passed": true, "evidence": "3 tiers in summary"},
+    {"text": "Includes verdict + next action", "passed": false, "evidence": "Summary paragraph but no clear verdict statement — 'Addressing the high and medium severity items is strongly recommended'"}
+  ]
+}

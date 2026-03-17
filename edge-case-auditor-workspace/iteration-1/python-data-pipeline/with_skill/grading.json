@@ -1,0 +1,15 @@
+{
+  "expectations": [
+    {"text": "Identifies no idempotency (re-run creates duplicate records)", "passed": true, "evidence": "Issue #2: 'No duplicate protection — re-running the pipeline inserts duplicate records' at pipeline.py:28-34"},
+    {"text": "Identifies missing error handling (no try/except anywhere)", "passed": true, "evidence": "Issue #1: 'No error handling anywhere — a single bad CSV row kills the entire pipeline' at pipeline.py:16-43"},
+    {"text": "Identifies database connection leak on exceptions", "passed": true, "evidence": "Issue #3: 'Database connection leaked on any exception' at pipeline.py:25-38"},
+    {"text": "Identifies archive/reports directories might not exist", "passed": true, "evidence": "Issue #6 (os.rename) and Issue #7: 'Daily report directory assumed to exist' at pipeline.py:81"},
+    {"text": "Identifies concurrent run risk (no overlap protection on schedule)", "passed": true, "evidence": "Issue #5: 'No overlap protection on the 15-minute scheduled job' at pipeline.py:89"},
+    {"text": "Identifies credentials in .env with no .gitignore", "passed": true, "evidence": "Issue #8: 'Credentials in .env with no .gitignore protection' at .env:1"},
+    {"text": "References specific file paths and line numbers", "passed": true, "evidence": "Every issue includes 'Where:' with file:line references like 'pipeline.py:16-43', 'pipeline.py:89'"},
+    {"text": "Provides actionable fix code snippets", "passed": true, "evidence": "Issues #1, #3, #4, #5, #6 all include Python code snippets showing the fix"},
+    {"text": "Uses severity tiers to prioritise issues", "passed": true, "evidence": "Uses 'Critical', 'High', 'Worth noting' tiers per skill format"},
+    {"text": "Includes a clear verdict and suggested next action", "passed": true, "evidence": "Verdict: 'This pipeline will break on its first encounter...' and Suggested next action present"}
+  ],
+  "summary": {"passed": 10, "failed": 0, "total": 10, "pass_rate": 1.0}
+}

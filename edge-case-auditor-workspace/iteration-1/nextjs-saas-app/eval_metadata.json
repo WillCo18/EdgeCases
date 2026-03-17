@@ -1,0 +1,17 @@
+{
+  "eval_id": 1,
+  "eval_name": "nextjs-saas-app",
+  "prompt": "I've been building this SaaS app with Next.js and Supabase — it has Stripe billing, a cron job for subscription checks, and a dashboard. I think it's ready to deploy to Vercel. Can you audit this before I ship?",
+  "assertions": [
+    "Identifies cron endpoint has no authentication",
+    "Identifies dashboard crashes when subscription is null",
+    "Identifies insert vs upsert issue on webhook (duplicates on retry)",
+    "Identifies Supabase auth won't work in server components without cookie-based client",
+    "Identifies auth route leaks session tokens in response body",
+    "Identifies cron job will crash on null data from Supabase query",
+    "References specific file paths and line numbers",
+    "Provides actionable fix code snippets",
+    "Uses severity tiers to prioritise issues",
+    "Includes a clear verdict and suggested next action"
+  ]
+}

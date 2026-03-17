@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "skill_name": "edge-case-auditor",
+    "iteration": 4,
+    "executor_model": "claude-opus-4-6",
+    "timestamp": "2026-03-16T11:30:00Z",
+    "changes_from_iteration_3": [
+      "Added 'never praise something you then flag' rule to What's Solid section",
+      "Added dedup check instruction for Worth noting (with concrete example)",
+      "Added 'missing config silently preventing feature' to High severity definition",
+      "Strengthened vercel.json calibration (should be High, not Worth noting)"
+    ]
+  },
+  "runs": [
+    {
+      "eval_id": 0, "eval_name": "stripe-airtable-sync", "configuration": "with_skill",
+      "result": {"pass_rate": 1.0, "passed": 10, "failed": 0, "total": 10, "issue_count": 12}
+    },
+    {
+      "eval_id": 0, "eval_name": "stripe-airtable-sync", "configuration": "without_skill",
+      "result": {"pass_rate": 1.0, "passed": 10, "failed": 0, "total": 10, "issue_count": 12}
+    },
+    {
+      "eval_id": 1, "eval_name": "nextjs-saas-app", "configuration": "with_skill",
+      "result": {"pass_rate": 1.0, "passed": 10, "failed": 0, "total": 10, "issue_count": 13}
+    },
+    {
+      "eval_id": 1, "eval_name": "nextjs-saas-app", "configuration": "without_skill",
+      "result": {"pass_rate": 0.9, "passed": 9, "failed": 1, "total": 10, "issue_count": 15}
+    },
+    {
+      "eval_id": 2, "eval_name": "python-data-pipeline", "configuration": "with_skill",
+      "result": {"pass_rate": 1.0, "passed": 10, "failed": 0, "total": 10, "issue_count": 13}
+    },
+    {
+      "eval_id": 2, "eval_name": "python-data-pipeline", "configuration": "without_skill",
+      "result": {"pass_rate": 0.9, "passed": 9, "failed": 1, "total": 10, "issue_count": 15}
+    }
+  ],
+  "run_summary": {
+    "with_skill": {"pass_rate": 1.0, "avg_issues": 12.7},
+    "without_skill": {"pass_rate": 0.93, "avg_issues": 14.0},
+    "delta": {"pass_rate": "+0.07", "avg_issues": "-1.3"}
+  },
+  "cross_iteration_comparison": {
+    "with_skill_pass_rate": {"iter1": 1.0, "iter2": 1.0, "iter3": 1.0, "iter4": 1.0},
+    "without_skill_pass_rate": {"iter1": 0.87, "iter2": 0.83, "iter3": 0.90, "iter4": 0.93},
+    "with_skill_avg_issues": {"iter1": 9.7, "iter2": 19.3, "iter3": 12.7, "iter4": 12.7},
+    "without_skill_avg_issues": {"iter1": 12.0, "iter2": 17.3, "iter3": 16.0, "iter4": 14.0}
+  },
+  "fix_validation": {
+    "whats_solid_contradictions": {
+      "iter3_stripe": "Praised sync endpoint existence then flagged it as High",
+      "iter3_nextjs": "Praised admin/anon separation then flagged it as Critical",
+      "iter4_stripe": "NO contradictions — all 3 bullets are genuinely correct things",
+      "iter4_nextjs": "Minor borderline: praises admin/anon separation usage pattern, H5 flags missing enforcement. Improved but not fully resolved.",
+      "iter4_python": "NO contradictions — all 4 bullets genuinely correct"
+    },
+    "worth_noting_dedup": {
+      "iter3_python": "Listed 'Slack failure crashes pipeline' despite 'no error handling' being Critical",
+      "iter4_python": "Still lists Slack failure but explicitly notes it's a sub-case. Improved self-awareness."
+    },
+    "severity_calibration": {
+      "vercel_json": {
+        "iter3": "Worth noting (incorrect — cron never runs without it)",
+        "iter4": "High H4 (correct — silently prevents feature)"
+      }
+    },
+    "baseline_improvement": {
+      "insert_vs_upsert": "Baseline caught this for FIRST TIME in iter4 Next.js (was 0/3 in previous iterations). The skill's exclusive advantage on this assertion is now reduced."
+    }
+  },
+  "notes": [
+    "ITERATION 4 RESULTS:",
+    "With-skill: 100% pass rate (stable across all 4 iterations)",
+    "Without-skill: 93% (up from 90% in iter3, highest baseline yet)",
+    "The gap is narrowing — baseline is improving across iterations (87% -> 83% -> 90% -> 93%)",
+    "",
+    "FIX VALIDATION:",
+    "1. What's solid contradictions: MOSTLY FIXED. Stripe report clean. Python clean. Next.js has one borderline case (praises separation pattern, flags missing enforcement).",
+    "2. Worth noting dedup: IMPROVED. Python Slack item still present but explicitly self-identified as sub-case.",
+    "3. Severity calibration: FIXED. vercel.json correctly placed at High (was Worth noting in iter3).",
+    "",
+    "NOTABLE BASELINE CHANGE:",
+    "The Next.js baseline caught insert-vs-upsert for the first time (was 0/3 in prior iterations).",
+    "This was previously the skill's strongest exclusive differentiator.",
+    "However, the baseline still placed it at MEDIUM severity — the skill correctly places it at Critical.",
+    "",
+    "REMAINING SKILL ADVANTAGES:",
+    "1. Consistent 100% pass rate vs baseline's variable 90-93%",
+    "2. Correct severity calibration (vercel.json at High, insert-vs-upsert at Critical)",
+    "3. What's Solid section (baseline never has this)",
+    "4. Specific follow-up offers (baseline never has this)",
+    "5. Consistent format: Risk Summary + Deployment Checklist + Verdict + Next Action",
+    "6. Tighter reports: 12.7 avg issues vs baseline's 14.0 (less padding, more signal)"
+  ]
+}

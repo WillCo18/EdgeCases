@@ -1,0 +1,15 @@
+{
+  "expectations": [
+    {"text": "Identifies cron endpoint has no authentication", "passed": true, "evidence": "Issue #1: 'Cron Endpoint Has No Authentication' in CRITICAL section"},
+    {"text": "Identifies dashboard crashes when subscription is null", "passed": true, "evidence": "Issue #6: 'Dashboard Will Crash on Null Subscription' at dashboard/page.tsx lines 28-30"},
+    {"text": "Identifies insert vs upsert issue on webhook (duplicates on retry)", "passed": false, "evidence": "Not explicitly identified. Webhook issues focus on error checking and missing event handlers, but the duplicate-on-retry/insert-vs-upsert problem is not called out"},
+    {"text": "Identifies Supabase auth won't work in server components without cookie-based client", "passed": true, "evidence": "Issue #7: 'Dashboard Uses Anon Key Server-Side Without Cookie-Based Auth'"},
+    {"text": "Identifies auth route leaks session tokens in response body", "passed": true, "evidence": "Issue #5: 'Auth Endpoint Returns Raw Session Token in JSON Body'"},
+    {"text": "Identifies cron job will crash on null data from Supabase query", "passed": true, "evidence": "Issue #9: 'Cron Job Crashes If expiring Is Null'"},
+    {"text": "References specific file paths and line numbers", "passed": true, "evidence": "Uses file paths and line numbers throughout, e.g., 'app/api/cron/route.ts', 'line 27'"},
+    {"text": "Provides actionable fix code snippets", "passed": true, "evidence": "Code snippets provided for cron auth, error handling, null check, SSR client, etc."},
+    {"text": "Uses severity tiers to prioritise issues", "passed": true, "evidence": "Uses CRITICAL, HIGH, MEDIUM tiers"},
+    {"text": "Includes a clear verdict and suggested next action", "passed": true, "evidence": "'Do not deploy yet' recommendation with prioritised fix order"}
+  ],
+  "summary": {"passed": 9, "failed": 1, "total": 10, "pass_rate": 0.9}
+}

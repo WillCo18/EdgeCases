@@ -1,0 +1,16 @@
+{
+  "eval_id": 1, "eval_name": "nextjs-saas-app", "configuration": "with_skill",
+  "pass_rate": 1.0, "passed": 10, "failed": 0, "total": 10,
+  "assertions": [
+    {"text": "Identifies cron endpoint has no authentication", "passed": true, "evidence": "Critical C3"},
+    {"text": "Identifies dashboard crashes when subscription is null", "passed": true, "evidence": "High H1"},
+    {"text": "Identifies insert vs upsert issue on webhook", "passed": true, "evidence": "Critical C2 — .insert() to .upsert() with onConflict"},
+    {"text": "Identifies Supabase auth won't work in server components", "passed": true, "evidence": "Critical C1 — anon client has no session in SSR"},
+    {"text": "Identifies auth route leaks session tokens", "passed": true, "evidence": "Critical C4 — XSS-exploitable tokens in body"},
+    {"text": "Identifies cron job will crash on null data", "passed": true, "evidence": "W1 — Supabase error swallowing covers cron null case"},
+    {"text": "References file paths and lines", "passed": true, "evidence": "All 13 issues reference specific files"},
+    {"text": "Provides fix code snippets", "passed": true, "evidence": "Code in 7 of 13 issues"},
+    {"text": "Uses severity tiers", "passed": true, "evidence": "3 tiers: Critical (4), High (6), Worth noting (3)"},
+    {"text": "Includes verdict + next action", "passed": true, "evidence": "Verdict, checklist, specific follow-up offer"}
+  ]
+}

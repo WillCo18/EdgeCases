@@ -1,0 +1,16 @@
+{
+  "eval_id": 2, "eval_name": "python-data-pipeline", "configuration": "with_skill",
+  "pass_rate": 1.0, "passed": 10, "failed": 0, "total": 10,
+  "assertions": [
+    {"text": "Identifies no idempotency", "passed": true, "evidence": "Critical #3"},
+    {"text": "Identifies missing error handling", "passed": true, "evidence": "Critical #1"},
+    {"text": "Identifies DB connection leak", "passed": true, "evidence": "Critical #2"},
+    {"text": "Identifies missing directories", "passed": true, "evidence": "High #8"},
+    {"text": "Identifies concurrent run risk", "passed": true, "evidence": "High #7 — threading.Lock fix"},
+    {"text": "Identifies credentials in .env", "passed": true, "evidence": "Critical #4"},
+    {"text": "References file paths and lines", "passed": true, "evidence": "All issues reference pipeline.py"},
+    {"text": "Provides fix code snippets", "passed": true, "evidence": "Code in 8 of 13 issues"},
+    {"text": "Uses severity tiers", "passed": true, "evidence": "3 tiers: Critical (4), High (6), Worth noting (3)"},
+    {"text": "Includes verdict + next action", "passed": true, "evidence": "Verdict, checklist, specific follow-up offer"}
+  ]
+}

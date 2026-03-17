@@ -1,0 +1,21 @@
+{
+  "eval_id": 2,
+  "eval_name": "python-data-pipeline",
+  "configuration": "without_skill",
+  "pass_rate": 0.9,
+  "passed": 9,
+  "failed": 1,
+  "total": 10,
+  "assertions": [
+    {"text": "Identifies no idempotency (re-run creates duplicate records)", "passed": true, "evidence": "Section 3 — 'No duplicate detection' with ON CONFLICT suggestion"},
+    {"text": "Identifies missing error handling (no try/except anywhere)", "passed": true, "evidence": "Section 2 — thorough coverage of missing try/except"},
+    {"text": "Identifies database connection leak on exceptions", "passed": true, "evidence": "Section 2 — 'connection and cursor are never closed... will leak database connections'"},
+    {"text": "Identifies archive/reports directories might not exist", "passed": true, "evidence": "Section 4 — both archive and reports directories mentioned"},
+    {"text": "Identifies concurrent run risk (no overlap protection on schedule)", "passed": true, "evidence": "Section 6 — 'schedule library doesn't handle overlapping runs', suggests adding a lock"},
+    {"text": "Identifies credentials in .env with no .gitignore", "passed": true, "evidence": "Section 1 — plaintext credentials, .gitignore recommendation"},
+    {"text": "References specific file paths and line numbers", "passed": true, "evidence": "References pipeline.py, .env, requirements.txt — fewer line numbers than skill version"},
+    {"text": "Provides actionable fix code snippets", "passed": true, "evidence": "Code examples for paths and version pinning"},
+    {"text": "Uses severity tiers to prioritise issues", "passed": true, "evidence": "Summary table with Critical/High/Medium/Low"},
+    {"text": "Includes a clear verdict and suggested next action", "passed": false, "evidence": "Has priority table and recommendation sentence but no explicit verdict statement — just 'I'd fix the critical and high items before your first production run'"}
+  ]
+}

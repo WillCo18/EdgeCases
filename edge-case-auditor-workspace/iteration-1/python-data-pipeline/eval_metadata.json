@@ -1,0 +1,17 @@
+{
+  "eval_id": 2,
+  "eval_name": "python-data-pipeline",
+  "prompt": "Here's my Python data pipeline — it reads CSVs from a folder every 15 minutes, cleans them up, and inserts them into Postgres. There's also a daily report generator. Am I missing anything before I run this on my server?",
+  "assertions": [
+    "Identifies no idempotency (re-run creates duplicate records)",
+    "Identifies missing error handling (no try/except anywhere)",
+    "Identifies database connection leak on exceptions",
+    "Identifies archive/reports directories might not exist",
+    "Identifies concurrent run risk (no overlap protection on schedule)",
+    "Identifies credentials in .env with no .gitignore",
+    "References specific file paths and line numbers",
+    "Provides actionable fix code snippets",
+    "Uses severity tiers to prioritise issues",
+    "Includes a clear verdict and suggested next action"
+  ]
+}

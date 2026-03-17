@@ -1,0 +1,15 @@
+{
+  "expectations": [
+    {"text": "Identifies no idempotency (re-run creates duplicate records)", "passed": true, "evidence": "Issue #3 at pipeline.py:29-34 with ON CONFLICT fix"},
+    {"text": "Identifies missing error handling (no try/except anywhere)", "passed": true, "evidence": "Issue #1 at pipeline.py:16-44 with try/except code pattern"},
+    {"text": "Identifies database connection leak on exceptions", "passed": true, "evidence": "Issue #2 at pipeline.py:25-38 with try/finally context manager fix"},
+    {"text": "Identifies archive/reports directories might not exist", "passed": true, "evidence": "Issues #6, #11 with os.makedirs and shutil.move fixes"},
+    {"text": "Identifies concurrent run risk (no overlap protection on schedule)", "passed": true, "evidence": "Issue #5 at pipeline.py:89 with threading.Lock code"},
+    {"text": "Identifies credentials in .env with no .gitignore", "passed": true, "evidence": "Issue #4 at .env:1 with .gitignore and rotation advice"},
+    {"text": "References specific file paths and line numbers", "passed": true, "evidence": "All 22 issues include file:line references"},
+    {"text": "Provides actionable fix code snippets", "passed": true, "evidence": "Python code in issues #1-5, #7-10, #13, #16, #18"},
+    {"text": "Uses severity tiers to prioritise issues", "passed": true, "evidence": "Critical (6) / High (9) / Worth noting (7)"},
+    {"text": "Includes verdict and suggested next action", "passed": true, "evidence": "Verdict, suggested next action, Risk Summary table, and Deployment Checklist all present"}
+  ],
+  "summary": {"passed": 10, "failed": 0, "total": 10, "pass_rate": 1.0}
+}

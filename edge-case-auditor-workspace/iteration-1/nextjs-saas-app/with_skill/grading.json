@@ -1,0 +1,15 @@
+{
+  "expectations": [
+    {"text": "Identifies cron endpoint has no authentication", "passed": true, "evidence": "Issue #2: 'Cron endpoint has no authentication — anyone can trigger it' at app/api/cron/route.ts:10"},
+    {"text": "Identifies dashboard crashes when subscription is null", "passed": true, "evidence": "Issue #3: 'Dashboard crashes when user has no subscription' at app/dashboard/page.tsx:28-30"},
+    {"text": "Identifies insert vs upsert issue on webhook (duplicates on retry)", "passed": true, "evidence": "Issue #1: 'Webhook insert will fail on duplicate events — Stripe sends retries' at app/api/webhook/route.ts:20-28"},
+    {"text": "Identifies Supabase auth won't work in server components without cookie-based client", "passed": true, "evidence": "Issue #7: 'Supabase admin client is used in a server component without proper SSR cookie handling' at lib/supabase.ts:3-6"},
+    {"text": "Identifies auth route leaks session tokens in response body", "passed": true, "evidence": "Issue #6: 'Auth route returns raw session token in response body — leaks to client logs' at app/api/auth/route.ts:16"},
+    {"text": "Identifies cron job will crash on null data from Supabase query", "passed": true, "evidence": "Issue #4: 'Cron job crashes on null query result and has no error handling' at app/api/cron/route.ts:21"},
+    {"text": "References specific file paths and line numbers", "passed": true, "evidence": "Every issue includes 'Where:' with file:line references"},
+    {"text": "Provides actionable fix code snippets", "passed": true, "evidence": "Issues #1-#7 all include TypeScript code snippets"},
+    {"text": "Uses severity tiers to prioritise issues", "passed": true, "evidence": "Uses 'Critical', 'High', 'Worth noting' tiers per skill format"},
+    {"text": "Includes a clear verdict and suggested next action", "passed": true, "evidence": "Verdict and Suggested next action both present at end of report"}
+  ],
+  "summary": {"passed": 10, "failed": 0, "total": 10, "pass_rate": 1.0}
+}

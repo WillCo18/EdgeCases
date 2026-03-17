@@ -1,0 +1,15 @@
+{
+  "expectations": [
+    {"text": "Identifies no idempotency (re-run creates duplicate records)", "passed": true, "evidence": "Issue #3: 'No Duplicate Detection -- Re-processing Will Insert Duplicate Rows' at pipeline.py lines 28-34"},
+    {"text": "Identifies missing error handling (no try/except anywhere)", "passed": true, "evidence": "Issue #1: 'Zero Error Handling Throughout the Entire Pipeline'"},
+    {"text": "Identifies database connection leak on exceptions", "passed": true, "evidence": "Issue #2: 'Database Connection Leaked on Any Error' at pipeline.py lines 25-38"},
+    {"text": "Identifies archive/reports directories might not exist", "passed": true, "evidence": "Issue #8: 'Reports Directory May Not Exist' at pipeline.py line 81"},
+    {"text": "Identifies concurrent run risk (no overlap protection on schedule)", "passed": false, "evidence": "Issue #11 mentions schedule library is single-threaded but does NOT explicitly identify the overlap/concurrent run risk when a job takes longer than the interval"},
+    {"text": "Identifies credentials in .env with no .gitignore", "passed": true, "evidence": "Issue #4: 'Credentials in .env File' — calls out password123 and missing .gitignore"},
+    {"text": "References specific file paths and line numbers", "passed": true, "evidence": "Uses 'File: pipeline.py, lines X-Y' format throughout"},
+    {"text": "Provides actionable fix code snippets", "passed": true, "evidence": "Includes code snippets for context managers, execute_batch, makedirs, etc."},
+    {"text": "Uses severity tiers to prioritise issues", "passed": true, "evidence": "Uses Critical, High, Medium, Low tiers"},
+    {"text": "Includes a clear verdict and suggested next action", "passed": false, "evidence": "Has 'Top Recommendations' list but no single verdict sentence. More of a checklist than a clear assessment"}
+  ],
+  "summary": {"passed": 8, "failed": 2, "total": 10, "pass_rate": 0.8}
+}

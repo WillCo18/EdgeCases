@@ -1,0 +1,21 @@
+{
+  "eval_id": 1,
+  "eval_name": "nextjs-saas-app",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "passed": 10,
+  "failed": 0,
+  "total": 10,
+  "assertions": [
+    {"text": "Identifies cron endpoint has no authentication", "passed": true, "evidence": "Critical issue #3 — CRON_SECRET verification fix with code"},
+    {"text": "Identifies dashboard crashes when subscription is null", "passed": true, "evidence": "Critical issue #2 — .single() returns null, TypeError on .plan"},
+    {"text": "Identifies insert vs upsert issue on webhook (duplicates on retry)", "passed": true, "evidence": "High issue #1 — .insert() to .upsert() with onConflict: 'stripe_subscription_id'"},
+    {"text": "Identifies Supabase auth won't work in server components without cookie-based client", "passed": true, "evidence": "Critical issue #1 — createClient vs createServerClient with cookie store"},
+    {"text": "Identifies auth route leaks session tokens in response body", "passed": true, "evidence": "Critical issue #4 — XSS token exfiltration risk, HttpOnly cookie fix"},
+    {"text": "Identifies cron job will crash on null data from Supabase query", "passed": true, "evidence": "High issue #6 — 'No Supabase error checking on any database operation' explicitly covers cron route"},
+    {"text": "References specific file paths and line numbers", "passed": true, "evidence": "All 15 issues reference specific files and line numbers"},
+    {"text": "Provides actionable fix code snippets", "passed": true, "evidence": "Code snippets in 8 of 15 issues"},
+    {"text": "Uses severity tiers to prioritise issues", "passed": true, "evidence": "3 tiers: Critical (5), High (6), Worth noting (4)"},
+    {"text": "Includes a clear verdict and suggested next action", "passed": true, "evidence": "Verdict, suggested next action, risk summary, deployment checklist, and specific follow-up offer all present"}
+  ]
+}

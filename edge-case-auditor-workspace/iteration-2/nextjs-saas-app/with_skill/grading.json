@@ -1,0 +1,15 @@
+{
+  "expectations": [
+    {"text": "Identifies cron endpoint has no authentication", "passed": true, "evidence": "Issue #4: Cron endpoint has no authentication at app/api/cron/route.ts:10"},
+    {"text": "Identifies dashboard crashes when subscription is null", "passed": true, "evidence": "Issue #2: Dashboard server component crashes on null subscription at page.tsx:28-30"},
+    {"text": "Identifies insert vs upsert issue on webhook (duplicates on retry)", "passed": true, "evidence": "Issue #1: Stripe webhook uses .insert() instead of .upsert() at route.ts:21"},
+    {"text": "Identifies Supabase auth won't work in server components without cookie-based client", "passed": true, "evidence": "Issue #3: Dashboard supabase.auth.getUser() will always return null at page.tsx:4"},
+    {"text": "Identifies auth route leaks session tokens in response body", "passed": true, "evidence": "Issue #5: Session token returned in API response body at auth/route.ts:16"},
+    {"text": "Identifies cron job will crash on null data from Supabase query", "passed": true, "evidence": "Issue #9: Cron job has no error handling — one failed Stripe call aborts entire run"},
+    {"text": "References specific file paths and line numbers", "passed": true, "evidence": "All 19 issues include file:line references"},
+    {"text": "Provides actionable fix code snippets", "passed": true, "evidence": "TypeScript code snippets in issues #1-8, #13"},
+    {"text": "Uses severity tiers to prioritise issues", "passed": true, "evidence": "Critical (6) / High (7) / Worth noting (6)"},
+    {"text": "Includes verdict and suggested next action", "passed": true, "evidence": "Verdict, suggested next action, Risk Summary table, and Deployment Checklist all present"}
+  ],
+  "summary": {"passed": 10, "failed": 0, "total": 10, "pass_rate": 1.0}
+}

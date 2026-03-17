@@ -1,0 +1,18 @@
+{
+  "name": "saas-dashboard",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.1.0",
+    "react": "^18",
+    "@supabase/supabase-js": "^2.39.0",
+    "@supabase/ssr": "^0.1.0",
+    "stripe": "^14.0.0",
+    "resend": "^3.0.0",
+    "cron": "^3.1.0"
+  }
+}

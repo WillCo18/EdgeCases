@@ -1,0 +1,15 @@
+{
+  "expectations": [
+    {"text": "Identifies missing Stripe webhook signature verification", "passed": true, "evidence": "Issue #1 at server.js:12-13 with constructEvent code fix"},
+    {"text": "Identifies duplicate record risk (no idempotency on Airtable writes)", "passed": true, "evidence": "Issue #4 at server.js:18-29 with filterByFormula dedup code"},
+    {"text": "Identifies missing error handling (no try/catch on async operations)", "passed": true, "evidence": "Issue #2 at server.js:18-29 with try/catch code pattern"},
+    {"text": "Identifies .env with live keys and no .gitignore", "passed": true, "evidence": "Issue #11 at project root with .gitignore content"},
+    {"text": "Identifies /sync/payments endpoint creates duplicates and is unauthenticated", "passed": true, "evidence": "Issue #3 at server.js:54 with bearer token auth code"},
+    {"text": "Identifies null property access risk on session.customer_details.email", "passed": true, "evidence": "Issue #5 at server.js:21 with optional chaining fix"},
+    {"text": "References specific file paths and line numbers", "passed": true, "evidence": "All 17 issues include file:line references"},
+    {"text": "Provides actionable fix code snippets", "passed": true, "evidence": "Code snippets in issues #1-7, #13-16"},
+    {"text": "Uses severity tiers to prioritise issues", "passed": true, "evidence": "Critical (5) / High (7) / Worth noting (5) tiers"},
+    {"text": "Includes verdict and suggested next action", "passed": true, "evidence": "Verdict and suggested next action present, plus Risk Summary table and Deployment Checklist"}
+  ],
+  "summary": {"passed": 10, "failed": 0, "total": 10, "pass_rate": 1.0}
+}

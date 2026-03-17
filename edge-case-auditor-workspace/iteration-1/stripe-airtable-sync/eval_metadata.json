@@ -1,0 +1,17 @@
+{
+  "eval_id": 0,
+  "eval_name": "stripe-airtable-sync",
+  "prompt": "I just built this webhook server that syncs Stripe payments to Airtable. It's working in dev but I'm about to deploy it to a DigitalOcean droplet. What could go wrong?",
+  "assertions": [
+    "Identifies missing Stripe webhook signature verification",
+    "Identifies duplicate record risk (no idempotency on Airtable writes)",
+    "Identifies missing error handling (no try/catch on async operations)",
+    "Identifies .env with live keys and no .gitignore",
+    "Identifies /sync/payments endpoint creates duplicates and is unauthenticated",
+    "Identifies null property access risk on session.customer_details.email",
+    "References specific file paths and line numbers",
+    "Provides actionable fix code snippets (not just descriptions)",
+    "Uses severity tiers to prioritise issues",
+    "Includes a clear verdict and suggested next action"
+  ]
+}

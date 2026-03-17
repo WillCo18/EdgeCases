@@ -1,0 +1,15 @@
+{
+  "expectations": [
+    {"text": "Identifies missing Stripe webhook signature verification", "passed": true, "evidence": "Issue #1: 'No Stripe Webhook Signature Verification' at server.js line 13"},
+    {"text": "Identifies duplicate record risk (no idempotency on Airtable writes)", "passed": true, "evidence": "Issue #5: 'No Idempotency / Duplicate Protection' at server.js lines 18-29, 38-48, 57-70"},
+    {"text": "Identifies missing error handling (no try/catch on async operations)", "passed": true, "evidence": "Issue #4: 'No Error Handling Anywhere' at server.js lines 12-52, 54-74"},
+    {"text": "Identifies .env with live keys and no .gitignore", "passed": true, "evidence": "Issue #2: '.env File Contains Live Secret Keys' at .env line 1"},
+    {"text": "Identifies /sync/payments endpoint creates duplicates and is unauthenticated", "passed": true, "evidence": "Issue #3: 'Unprotected Manual Sync Endpoint' at server.js lines 54-74"},
+    {"text": "Identifies null property access risk on session.customer_details.email", "passed": true, "evidence": "Issue #6: 'Null/Undefined Property Access' at server.js lines 21, 42"},
+    {"text": "References specific file paths and line numbers", "passed": true, "evidence": "Uses 'File: server.js, line X' format throughout"},
+    {"text": "Provides actionable fix code snippets (not just descriptions)", "passed": true, "evidence": "Includes code snippets for webhook verification, error handling, dedup, and optional chaining fixes"},
+    {"text": "Uses severity tiers to prioritise issues", "passed": true, "evidence": "Uses CRITICAL, HIGH, MEDIUM, LOW tiers (different format but equivalent)"},
+    {"text": "Includes a clear verdict and suggested next action", "passed": false, "evidence": "Has a 'Risk Summary' table and deployment checklist but no single verdict sentence or suggested next action"}
+  ],
+  "summary": {"passed": 9, "failed": 1, "total": 10, "pass_rate": 0.9}
+}

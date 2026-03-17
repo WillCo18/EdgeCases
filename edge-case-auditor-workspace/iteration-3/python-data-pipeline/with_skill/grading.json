@@ -1,0 +1,21 @@
+{
+  "eval_id": 2,
+  "eval_name": "python-data-pipeline",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "passed": 10,
+  "failed": 0,
+  "total": 10,
+  "assertions": [
+    {"text": "Identifies no idempotency (re-run creates duplicate records)", "passed": true, "evidence": "Critical issue #1 — ON CONFLICT fix with code"},
+    {"text": "Identifies missing error handling (no try/except anywhere)", "passed": true, "evidence": "Critical issue #2 — one bad CSV kills pipeline, with dead-letter dir fix"},
+    {"text": "Identifies database connection leak on exceptions", "passed": true, "evidence": "Critical issue #3 — connection leak between get_db_connection and conn.close"},
+    {"text": "Identifies archive/reports directories might not exist", "passed": true, "evidence": "High issue #5 — os.makedirs fix for both directories"},
+    {"text": "Identifies concurrent run risk (no overlap protection on schedule)", "passed": true, "evidence": "High issue #1 — fcntl.flock fix with code"},
+    {"text": "Identifies credentials in .env with no .gitignore", "passed": true, "evidence": "Critical issue #4 — plaintext password, missing .gitignore"},
+    {"text": "References specific file paths and line numbers", "passed": true, "evidence": "All 12 issues reference pipeline.py with line numbers"},
+    {"text": "Provides actionable fix code snippets", "passed": true, "evidence": "Code snippets in 8 of 12 issues"},
+    {"text": "Uses severity tiers to prioritise issues", "passed": true, "evidence": "3 tiers: Critical (4), High (5), Worth noting (3)"},
+    {"text": "Includes a clear verdict and suggested next action", "passed": true, "evidence": "Verdict, suggested next action, risk summary, deployment checklist, and specific follow-up offer all present"}
+  ]
+}

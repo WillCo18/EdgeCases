@@ -1,0 +1,16 @@
+{
+  "eval_id": 1, "eval_name": "nextjs-saas-app", "configuration": "without_skill",
+  "pass_rate": 0.9, "passed": 9, "failed": 1, "total": 10,
+  "assertions": [
+    {"text": "Identifies cron endpoint has no authentication", "passed": true, "evidence": "Critical #2"},
+    {"text": "Identifies dashboard crashes when subscription is null", "passed": true, "evidence": "High #4"},
+    {"text": "Identifies insert vs upsert issue on webhook", "passed": true, "evidence": "Medium #11 — 'Use upsert keyed on stripe_subscription_id'"},
+    {"text": "Identifies Supabase auth won't work in server components", "passed": true, "evidence": "High #6"},
+    {"text": "Identifies auth route leaks session tokens", "passed": true, "evidence": "High #5"},
+    {"text": "Identifies cron job will crash on null data", "passed": false, "evidence": "Cron timeout and error handling mentioned but not the specific null expiring data crash"},
+    {"text": "References file paths and lines", "passed": true, "evidence": "File references throughout"},
+    {"text": "Provides fix code snippets", "passed": true, "evidence": "Code for cron auth and vercel.json"},
+    {"text": "Uses severity tiers", "passed": true, "evidence": "4 tiers: Critical, High, Medium, Low"},
+    {"text": "Includes verdict + next action", "passed": true, "evidence": "'Do not deploy yet' with priority order"}
+  ]
+}

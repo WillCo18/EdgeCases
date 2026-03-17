@@ -1,0 +1,39 @@
+{
+  "skill_name": "edge-case-auditor",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "I just built this webhook server that syncs Stripe payments to Airtable. It's working in dev but I'm about to deploy it to a DigitalOcean droplet. What could go wrong?",
+      "expected_output": "A prioritised audit report identifying webhook signature verification missing, no idempotency/dedup on Airtable writes, no error handling on Airtable API calls, .env with live keys, /sync/payments endpoint creates duplicates on re-run, no retry logic, no rate limit handling for Airtable API",
+      "files": [
+        "edge-case-auditor-workspace/iteration-1/stripe-airtable-sync/test-project/server.js",
+        "edge-case-auditor-workspace/iteration-1/stripe-airtable-sync/test-project/package.json",
+        "edge-case-auditor-workspace/iteration-1/stripe-airtable-sync/test-project/.env"
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "I've been building this SaaS app with Next.js and Supabase — it has Stripe billing, a cron job for subscription checks, and a dashboard. I think it's ready to deploy to Vercel. Can you audit this before I ship?",
+      "expected_output": "A comprehensive audit covering: auth route using anon key instead of service role for admin ops, cron endpoint not protected (anyone can call GET), null handling on dashboard when subscription is missing, no error handling on Supabase queries in cron, potential Vercel function timeout on cron with many subscriptions, insert vs upsert on webhook handler causing duplicates on retry",
+      "files": [
+        "edge-case-auditor-workspace/iteration-1/nextjs-saas-app/test-project/app/api/webhook/route.ts",
+        "edge-case-auditor-workspace/iteration-1/nextjs-saas-app/test-project/app/api/auth/route.ts",
+        "edge-case-auditor-workspace/iteration-1/nextjs-saas-app/test-project/app/api/cron/route.ts",
+        "edge-case-auditor-workspace/iteration-1/nextjs-saas-app/test-project/app/dashboard/page.tsx",
+        "edge-case-auditor-workspace/iteration-1/nextjs-saas-app/test-project/lib/supabase.ts",
+        "edge-case-auditor-workspace/iteration-1/nextjs-saas-app/test-project/package.json",
+        "edge-case-auditor-workspace/iteration-1/nextjs-saas-app/test-project/.env.local"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Here's my Python data pipeline — it reads CSVs from a folder every 15 minutes, cleans them up, and inserts them into Postgres. There's also a daily report generator. Am I missing anything before I run this on my server?",
+      "expected_output": "Audit covering: no idempotency (re-running inserts duplicates), no try/except around CSV processing (one bad file kills the whole run), DB connection not pooled, archive dir might not exist, no file locking (concurrent runs process same file), pipeline overlap possible, .env has plaintext DB password, no validation on CSV columns existing, large CSV loaded entirely into memory, reports dir might not exist, no error handling on Slack webhook, schedule library has no overlap protection",
+      "files": [
+        "edge-case-auditor-workspace/iteration-1/python-data-pipeline/test-project/pipeline.py",
+        "edge-case-auditor-workspace/iteration-1/python-data-pipeline/test-project/requirements.txt",
+        "edge-case-auditor-workspace/iteration-1/python-data-pipeline/test-project/.env"
+      ]
+    }
+  ]
+}

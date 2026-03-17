@@ -1,0 +1,15 @@
+{
+  "expectations": [
+    {"text": "Identifies missing Stripe webhook signature verification", "passed": true, "evidence": "Issue #1: 'Stripe webhook signature not verified — anyone can POST fake payment events' at server.js:12-13"},
+    {"text": "Identifies duplicate record risk (no idempotency on Airtable writes)", "passed": true, "evidence": "Issue #4: 'No idempotency — duplicate Airtable records on webhook retries' at server.js:18-29"},
+    {"text": "Identifies missing error handling (no try/catch on async operations)", "passed": true, "evidence": "Issue #2: 'Zero error handling — any Airtable or Stripe API failure crashes the server' at server.js:18-29"},
+    {"text": "Identifies .env with live keys and no .gitignore", "passed": true, "evidence": "Issue #7: '.env contains live secret key with no .gitignore' at .env:1"},
+    {"text": "Identifies /sync/payments endpoint creates duplicates and is unauthenticated", "passed": true, "evidence": "Issue #5: '/sync/payments endpoint is unauthenticated and creates duplicates' at server.js:54-74"},
+    {"text": "Identifies null property access risk on session.customer_details.email", "passed": true, "evidence": "Issue #3: 'Null property access on session.customer_details.email will throw' at server.js:22"},
+    {"text": "References specific file paths and line numbers", "passed": true, "evidence": "Every issue includes 'Where:' with file:line references like 'server.js:12-13', 'server.js:22', etc."},
+    {"text": "Provides actionable fix code snippets (not just descriptions)", "passed": true, "evidence": "Issues #1, #2, #3, #4, #5 all include code snippets showing the fix"},
+    {"text": "Uses severity tiers to prioritise issues", "passed": true, "evidence": "Report uses 'Critical', 'High', and 'Worth noting' severity tiers matching the skill format"},
+    {"text": "Includes a clear verdict and suggested next action", "passed": true, "evidence": "Verdict: 'This server has real security and reliability issues...' and Suggested next action: 'Add Stripe webhook signature verification...'"}
+  ],
+  "summary": {"passed": 10, "failed": 0, "total": 10, "pass_rate": 1.0}
+}

@@ -1,0 +1,16 @@
+{
+  "eval_id": 0, "eval_name": "stripe-airtable-sync", "configuration": "without_skill",
+  "pass_rate": 1.0, "passed": 10, "failed": 0, "total": 10,
+  "assertions": [
+    {"text": "Identifies missing webhook signature verification", "passed": true, "evidence": "Section 1"},
+    {"text": "Identifies duplicate record risk", "passed": true, "evidence": "Section 3 — Stripe retries + no dedup"},
+    {"text": "Identifies missing error handling", "passed": true, "evidence": "Section 4"},
+    {"text": "Identifies .env with live keys", "passed": true, "evidence": "Section 5"},
+    {"text": "Identifies /sync/payments issues", "passed": true, "evidence": "Section 2"},
+    {"text": "Identifies null property access", "passed": true, "evidence": "Section 9 — customer_details and price.nickname"},
+    {"text": "References file paths and lines", "passed": true, "evidence": "Code references throughout"},
+    {"text": "Provides fix code snippets", "passed": true, "evidence": "constructEvent code snippet"},
+    {"text": "Uses severity tiers", "passed": true, "evidence": "Priority list with 8 items"},
+    {"text": "Includes verdict + next action", "passed": true, "evidence": "'webhook verification and open sync endpoint' as blockers"}
+  ]
+}

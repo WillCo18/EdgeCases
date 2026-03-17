@@ -1,0 +1,35 @@
+{
+  "reviews": [
+    {
+      "run_id": "stripe-airtable-sync-with_skill",
+      "feedback": "1. Sample size risk \u2014 1 run per configuration is too thin to trust the error bars. Results may not be statistically reliable.\n2. Assertion quality gap \u2014 Assertions only check for the presence of fix code snippets, not their quality. A weak snippet passes the same as a strong one. Consider adding quality-grading assertions for the fix recommendations.\n3. Discovery breadth risk \u2014 The without-skill baseline caught issues (HTTPS/TLS, HTML injection, transaction rollback) that the skill version missed. Flag this for monitoring across the remaining evals \u2014 if the pattern repeats, the skill may be narrowing Claude's discovery scope.",
+      "timestamp": "2026-03-16T07:50:52.938Z"
+    },
+    {
+      "run_id": "stripe-airtable-sync-without_skill",
+      "feedback": "1. Discovery breadth deficit is now confirmed, not a risk\nThe without-skill run found 3 additional valid issues (HTTPS/TLS, hardcoded port, structured logging) that the skill version missed. The SKILL.md needs an explicit instruction that issue discovery should never be capped or constrained \u2014 find everything, then tier by severity.\n2. Add deployment checklist and risk summary table to required output format\nThe without-skill output produced both of these unprompted. They're high-value for Automators doing a pre-deploy check. The skill should mandate them as part of the output structure.\n3. The format vs coverage trade-off is now the primary thing to fix\nThe skill reliably wins on structure (verdict, next action, severity tiers). It's losing on coverage. That's the wrong trade-off for an audit tool \u2014 missing a production issue is worse than inconsistent formatting. Fix discovery breadth before optimising anything else.",
+      "timestamp": "2026-03-16T07:50:52.938Z"
+    },
+    {
+      "run_id": "nextjs-saas-app-with_skill",
+      "feedback": "Prioritisation logic needs revisiting \u2014 the suggested next action chose the security issue over the issue that breaks auth for every user. For Automators pre-deploy, user-facing breakage should rank alongside or above exploitability.\nNo new discovery breadth concerns on this eval \u2014 the with-skill output covered the full assertion set. The tunnel vision pattern from evals 1-2 did not repeat here.\nStack-aware fix quality is strong \u2014 the Supabase SSR and upsert fixes are accurate and specific. This is the skill performing at its ceiling.\n\n",
+      "timestamp": "2026-03-16T07:50:52.938Z"
+    },
+    {
+      "run_id": "nextjs-saas-app-without_skill",
+      "feedback": "Insert vs upsert miss confirmed as a consistent without-skill failure \u2014 the skill is reliably adding this catch. Keep it.\nDiscovery breadth deficit is now a pattern across 3 of 4 evals \u2014 the SKILL.md fix flagged in eval 2 feedback is confirmed as necessary. Priority: high.\nAdmin client bundling risk (issue #8 in without-skill) is a high-quality catch the skill missed. Consider adding server-only / client bundle exposure as an explicit check category in the SKILL.md.",
+      "timestamp": "2026-03-16T07:50:52.938Z"
+    },
+    {
+      "run_id": "python-data-pipeline-with_skill",
+      "feedback": "Concurrent run / overlap protection is a confirmed skill content win \u2014 consistent with the idempotency pattern across evals. The SKILL.md is reliably prompting Claude to reason about timing and re-entrancy. Keep this explicit in the skill.\nNo breadth deficit on this eval \u2014 the tunnel vision pattern did not appear here. Worth noting as a counter-data-point when assessing how broadly to apply the breadth fix.\nFix quality on this eval is the strongest so far \u2014 the threading lock, shutil.move, and connection context manager fixes are all production-grade. This is the output ceiling to aim for consistently.",
+      "timestamp": "2026-03-16T07:50:52.938Z"
+    },
+    {
+      "run_id": "python-data-pipeline-without_skill",
+      "feedback": "Concurrent run risk miss confirmed \u2014 the without-skill run identifies the library limitation but not the specific overlap failure mode. The skill's explicit overlap protection pattern is a genuine, repeatable content win. Keep it.\nVerdict vs checklist is a real distinction \u2014 \"Top Recommendations\" fails the assertion because it offloads synthesis to the reader. The SKILL.md's verdict requirement is correct and valuable. Don't remove it.\nDiscovery breadth deficit is the primary SKILL.md fix needed \u2014 confirmed across 4 of 6 evals. The skill is consistently producing fewer issues than the without-skill baseline. The fix: add an explicit instruction in the SKILL.md to exhaust all issue categories before tiering, with no implicit cap on issue count.\nThe skill's core value proposition is proven \u2014 it reliably catches concurrency/idempotency issues and enforces verdict + next action. Those are the two things worth protecting in any SKILL.md revision.",
+      "timestamp": "2026-03-16T07:50:52.938Z"
+    }
+  ],
+  "status": "in_progress"
+}

@@ -1,0 +1,15 @@
+{
+  "expectations": [
+    {"text": "Identifies cron endpoint has no authentication", "passed": true, "evidence": "Issue #1: Cron Endpoint Has No Authentication"},
+    {"text": "Identifies dashboard crashes when subscription is null", "passed": true, "evidence": "Issue #4: Dashboard Crashes on Null Subscription"},
+    {"text": "Identifies insert vs upsert issue on webhook (duplicates on retry)", "passed": false, "evidence": "Not identified — webhook issues focus on error checking and hardcoded dates but insert-vs-upsert not flagged"},
+    {"text": "Identifies Supabase auth won't work in server components without cookie-based client", "passed": true, "evidence": "Issue #6: Supabase Anon Client Used in Server Component for Auth"},
+    {"text": "Identifies auth route leaks session tokens in response body", "passed": true, "evidence": "Issue #5: Auth Endpoint Returns Raw Session Token in JSON Body"},
+    {"text": "Identifies cron job will crash on null data from Supabase query", "passed": true, "evidence": "Issue #9: Cron Job Null Safety"},
+    {"text": "References specific file paths and line numbers", "passed": true, "evidence": "File paths and lines throughout"},
+    {"text": "Provides actionable fix code snippets", "passed": true, "evidence": "Code snippets for several issues"},
+    {"text": "Uses severity tiers to prioritise issues", "passed": true, "evidence": "CRITICAL/HIGH/MEDIUM/LOW tiers"},
+    {"text": "Includes verdict and suggested next action", "passed": true, "evidence": "'Do NOT deploy' recommendation with clear summary"}
+  ],
+  "summary": {"passed": 9, "failed": 1, "total": 10, "pass_rate": 0.9}
+}
